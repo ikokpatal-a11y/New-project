@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Joyeux Anniversaire Mon Amour ❤️</title>
+<style>
+body {
+    margin:0;
+    background:black;
+    color:white;
+    font-family: 'Georgia', serif;
+    text-align:center;
+    overflow:hidden;
+}
+.container {
+    position:absolute;
+    width:100%;
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+h1 {
+    font-size:2.2em;
+    width:80%;
+    animation: fadeIn 4s ease-in-out;
+}
+@keyframes fadeIn {
+    from {opacity:0;}
+    to {opacity:1;}
+}
+.slide {
+    position:absolute;
+    width:100%;
+    height:100%;
+    background-size:cover;
+    background-position:center;
+    opacity:0;
+    transition: opacity 2s ease-in-out;
+}
+.visible {
+    opacity:1;
+}
+.final-message {
+    position:absolute;
+    bottom:10%;
+    width:100%;
+    font-size:1.5em;
+}
+</style>
+</head>
+<body>
+
+<div id="intro" class="container">
+<h1>
+Il y a des personnes qu’on rencontre…<br><br>
+Et il y a celles qui changent notre vie.<br><br>
+Depuis que je t’ai rencontrée,<br>
+mon monde a pris une autre couleur.<br><br>
+Plus douce.<br>
+Plus belle.<br>
+Plus lumineuse. 
+</h1>
+</div>
+
+<div id="slideshow">
+    <div class="slide" style="background-image:url('photo1.jpg')"></div>
+    <div class="slide" style="background-image:url('photo2.jpg')"></div>
+    <div class="slide" style="background-image:url('photo3.jpg')"></div>
+    <div class="slide" style="background-image:url('photo4.jpg')"></div>
+    <div class="slide" style="background-image:url('photo5.jpg')"></div>
+    <div class="slide" style="background-image:url('photo6.jpg')"></div>
+    <div class="slide" style="background-image:url('photo7.jpg')"></div>
+    <div class="slide" style="background-image:url('photo8.jpg')"></div>
+</div>
+
+<div class="final-message" id="finalMessage" style="display:none;">
+Joyeux anniversaire mon amour ❤️<br><br>
+Merci d’être entrée dans ma vie.<br>
+Merci pour ton sourire.<br>
+Merci pour ton amour.<br><br>
+Je ne veux pas seulement être ton présent…<br>
+Je veux être ton avenir.<br><br>
+— Ton CHERI D'AMOUR😚.
+</div>
+
+<audio autoplay loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+setTimeout(function(){
+    document.getElementById("intro").style.display="none";
+    let slides=document.querySelectorAll(".slide");
+    let index=0;
+    slides[index].classList.add("visible");
+
+    setInterval(function(){
+        slides[index].classList.remove("visible");
+        index++;
+        if(index>=slides.length){
+            document.getElementById("finalMessage").style.display="block";
+            return;
+        }
+        slides[index].classList.add("visible");
+    },4000);
+},8000);
+</script>
+
+</body>
+</html>
